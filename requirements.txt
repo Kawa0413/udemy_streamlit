@@ -3,3 +3,6 @@ streamlit==1.7.0
 # click関連のエラーを消すため
 # https://discuss.streamlit.io/t/attributeerror-module-click-has-no-attribute-get-os-args/23621/2
 click<=8.0.4
+
+#株価可視化アプリ用ライブラリ
+yfinance==0.1.70
