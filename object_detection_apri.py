@@ -63,7 +63,7 @@ if uploaded_file is not None:
     #関数でファイルパスを指定するため読み込んだ画像を特定のフォルダに保存
     img_path = f'img/{uploaded_file.name}'
     img.save(img_path)
-    # objects = detect_objects(img_path)
+    objects = detect_objects(img_path)
 
     # #描画(矩形)
     # draw = ImageDraw.Draw(img)
