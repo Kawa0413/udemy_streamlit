@@ -13,6 +13,8 @@ import time
 
 import settings
 import streamlit as st
+import glob
+
 
 
 #streamlit sharingでシークレット情報を扱う
@@ -63,6 +65,10 @@ if uploaded_file is not None:
     #関数でファイルパスを指定するため読み込んだ画像を特定のフォルダに保存
     img_path = f'img/{uploaded_file.name}'
     img.save(img_path)
+    st.markdown(img_path)
+    files = glob.glob("img/*")
+    for file in files:
+        print(file)
     objects = detect_objects(img_path)
 
     # #描画(矩形)
