@@ -10,14 +10,11 @@ from PIL import Image
 import sys
 import time
 
-import json 
-with open('./secret.json') as f:
-    secret = json.load(f)
-
+import settings
 
 #本来はsecret.jsonなどを作成して別ファイルから読み込んでくる
-subscription_key = secret['KEY']
-endpoint = secret['ENDPOINT']
+subscription_key = settings.KEY
+endpoint = settings.ENDPOINT
 #クライアントを認証(apiを使えるかどうかの認証)
 computervision_client = ComputerVisionClient(endpoint, CognitiveServicesCredentials(subscription_key))
 
