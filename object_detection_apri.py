@@ -62,7 +62,7 @@ if uploaded_file is not None:
     #関数でファイルパスを指定するため読み込んだ画像を特定のフォルダに保存
     img_path = f'img/{uploaded_file.name}'
     img.save(img_path)
-    objects = detect_objects('img/楽屋でのラヴィット.png')
+    objects = detect_objects(img_path)
 
     #描画(矩形)
     draw = ImageDraw.Draw(img)
@@ -84,7 +84,7 @@ if uploaded_file is not None:
 
     st.image(img)
 
-    tags_name = get_tags('img/楽屋でのラヴィット.png')
+    tags_name = get_tags(img_path)
     tags_name = ', '.join(tags_name)
 
 
