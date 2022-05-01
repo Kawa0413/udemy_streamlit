@@ -62,7 +62,7 @@ if uploaded_file is not None:
     #関数でファイルパスを指定するため読み込んだ画像を特定のフォルダに保存
     img_path = f'img/{uploaded_file.name}'
     img.save(img_path)
-    objects = detect_objects('https://github.com/Kawa0413/udemy_streamlit/blob/master/img/%E6%A5%BD%E5%B1%8B%E3%81%A7%E3%81%AE%E3%83%A9%E3%83%B4%E3%82%A3%E3%83%83%E3%83%88.png')
+    objects = detect_objects('https://github.com/Kawa0413/udemy_streamlit/blob/master/img/loveit_sample.jpg')
 
     #描画(矩形)
     draw = ImageDraw.Draw(img)
@@ -84,7 +84,7 @@ if uploaded_file is not None:
 
     st.image(img)
 
-    tags_name = get_tags('https://github.com/Kawa0413/udemy_streamlit/blob/master/img/%E6%A5%BD%E5%B1%8B%E3%81%A7%E3%81%AE%E3%83%A9%E3%83%B4%E3%82%A3%E3%83%83%E3%83%88.png')
+    tags_name = get_tags('https://github.com/Kawa0413/udemy_streamlit/blob/master/img/loveit_sample.jpg')
     tags_name = ', '.join(tags_name)
 
 
