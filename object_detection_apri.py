@@ -45,8 +45,8 @@ def detect_objects(filepath):
   local_image = open(filepath, "rb")
 
   detect_objects_results = computervision_client.detect_objects(local_image)
-#   objects = detect_objects_results.objects
-#   return objects
+  objects = detect_objects_results.objects
+  return objects
 
 
 #streamlitによるアプリ画面
