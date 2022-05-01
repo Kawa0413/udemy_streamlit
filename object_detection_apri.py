@@ -21,6 +21,9 @@ import streamlit as st
 subscription_key = st.secrets["AzureApiKey"]["KEY"]
 endpoint = st.secrets["AzureApiKey"]["ENDPOINT"]
 
+st.markdown(subscription_key)
+
+
 # endpoint = st.secrets.AzureApiKey.ENDPOINT
 #クライアントを認証(apiを使えるかどうかの認証)
 computervision_client = ComputerVisionClient(endpoint, CognitiveServicesCredentials(subscription_key))
@@ -55,7 +58,6 @@ st.title('物体検出アプリ')
 #ファイルアップロード機能
 uploaded_file = st.file_uploader('Choose an image...', type=['jpg', 'png'])
 if uploaded_file is not None:
-    st.markdown(uploaded_file.name)
     #画像ファイルにalpha値が含まれているケースを回避するためrgb変換
     img = Image.open(uploaded_file).convert('RGB')
 
