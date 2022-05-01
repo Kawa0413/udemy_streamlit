@@ -57,7 +57,6 @@ st.title('物体検出アプリ')
 
 #ファイルアップロード機能
 uploaded_file = st.file_uploader('Choose an image...', type=['jpg', 'png'])
-st.image('img/loveit_sample.jpg')
 if uploaded_file is not None:
     #画像ファイルにalpha値が含まれているケースを回避するためrgb変換
     img = Image.open(uploaded_file).convert('RGB')
@@ -69,7 +68,7 @@ if uploaded_file is not None:
     files = glob.glob("img/*")
     for file in files:
         print(file)
-    objects = detect_objects(img_path)
+    # objects = detect_objects(img_path)
 
     # #描画(矩形)
     # draw = ImageDraw.Draw(img)
