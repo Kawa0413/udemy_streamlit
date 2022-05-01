@@ -13,7 +13,6 @@ import time
 
 import settings
 import streamlit as st
-import glob
 
 
 
@@ -32,7 +31,7 @@ computervision_client = ComputerVisionClient(endpoint, CognitiveServicesCredenti
 #タグ情報を取得する関数
 def get_tags(filepath):
   local_image = open(filepath, "rb")
-  tags_result = computervision_client.tag_image_in_stream(local_image)
+  tags_result = computervision_client.tag_image(local_image)
 
   tags = tags_result.tags
   tags_name = []
@@ -65,37 +64,34 @@ if uploaded_file is not None:
     img_path = f'img/{uploaded_file.name}'
     img.save(img_path)
     st.markdown(img_path)
-    files = glob.glob("img/*")
-    for file in files:
-        st.markdown(file)
     objects = detect_objects(img_path)
 
-    # #描画(矩形)
-    # draw = ImageDraw.Draw(img)
-    # for object in objects:
-    #     x = object.rectangle.x
-    #     y = object.rectangle.y
-    #     w = object.rectangle.w
-    #     h = object.rectangle.h
-    #     #object_propertyに変更されている
-    #     # caption = object.object
-    #     caption = object.object_property
+    #描画(矩形)
+    draw = ImageDraw.Draw(img)
+    for object in objects:
+        x = object.rectangle.x
+        y = object.rectangle.y
+        w = object.rectangle.w
+        h = object.rectangle.h
+        #object_propertyに変更されている
+        # caption = object.object
+        caption = object.object_property
 
-    #     font = ImageFont.truetype(font='./Helvetica 400.ttf', size=30)
-    #     text_w, text_h = draw.textsize(caption, font=font)
+        font = ImageFont.truetype(font='./Helvetica 400.ttf', size=30)
+        text_w, text_h = draw.textsize(caption, font=font)
 
-    #     draw.rectangle([(x, y), (x+w, y+h)], fill=None, outline='green', width=5)
-    #     draw.rectangle([(x, y), (x+text_w, y+text_h)], fill='green')
-    #     draw.text((x, y), caption, fill='white', font=font)
+        draw.rectangle([(x, y), (x+w, y+h)], fill=None, outline='green', width=5)
+        draw.rectangle([(x, y), (x+text_w, y+text_h)], fill='green')
+        draw.text((x, y), caption, fill='white', font=font)
 
-    # st.image(img)
+    st.image(img)
 
-    # tags_name = get_tags(img_path)
-    # tags_name = ', '.join(tags_name)
+    tags_name = get_tags(img_path)
+    tags_name = ', '.join(tags_name)
 
 
-    # st.markdown('**認識されたコンテンツタグ**')
-    # st.markdown(f'>{tags_name}')
+    st.markdown('**認識されたコンテンツタグ**')
+    st.markdown(f'>{tags_name}')
 
 
 
