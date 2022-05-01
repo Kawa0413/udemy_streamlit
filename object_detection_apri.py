@@ -16,8 +16,11 @@ import streamlit as st
 
 #streamlit sharingでシークレット情報を扱う
 #https://qiita.com/yuu999/items/e56fe82e61db0f74f9cb
-subscription_key = st.secrets.AzureApiKey.KEY
-endpoint = st.secrets.AzureApiKey.ENDPOINT
+# subscription_key = st.secrets.AzureApiKey.KEY
+subscription_key = st.secrets["AzureApiKey"]["KEY"]
+endpoint = st.secrets["AzureApiKey"]["ENDPOINT"]
+
+# endpoint = st.secrets.AzureApiKey.ENDPOINT
 #クライアントを認証(apiを使えるかどうかの認証)
 computervision_client = ComputerVisionClient(endpoint, CognitiveServicesCredentials(subscription_key))
 
