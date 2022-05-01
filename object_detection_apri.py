@@ -11,10 +11,13 @@ import sys
 import time
 
 import settings
+import streamlit as st
 
-#本来はsecret.jsonなどを作成して別ファイルから読み込んでくる
-subscription_key = settings.KEY
-endpoint = settings.ENDPOINT
+
+#streamlit sharingでシークレット情報を扱う
+#https://qiita.com/yuu999/items/e56fe82e61db0f74f9cb
+subscription_key = st.secrets.AzureApiKey.KEY
+endpoint = st.secrets.AzureApiKey.ENDPOINT
 #クライアントを認証(apiを使えるかどうかの認証)
 computervision_client = ComputerVisionClient(endpoint, CognitiveServicesCredentials(subscription_key))
 
@@ -40,7 +43,6 @@ def detect_objects(filepath):
 
 
 #streamlitによるアプリ画面
-import streamlit as st
 from PIL import ImageDraw
 from PIL import ImageFont
 
