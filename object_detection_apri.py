@@ -1,4 +1,5 @@
 #サブスクション周りとエンドキーポイント
+from signal import alarm
 from azure.cognitiveservices.vision.computervision import ComputerVisionClient
 from azure.cognitiveservices.vision.computervision.models import OperationStatusCodes
 from azure.cognitiveservices.vision.computervision.models import VisualFeatureTypes
@@ -54,6 +55,7 @@ st.title('物体検出アプリ')
 #ファイルアップロード機能
 uploaded_file = st.file_uploader('Choose an image...', type=['jpg', 'png'])
 if uploaded_file is not None:
+    st.markdown(uploaded_file.name)
     #画像ファイルにalpha値が含まれているケースを回避するためrgb変換
     img = Image.open(uploaded_file).convert('RGB')
 
