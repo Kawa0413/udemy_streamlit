@@ -44,7 +44,7 @@ def get_tags(filepath):
 def detect_objects(filepath):
   local_image = open(filepath, "rb")
 
-  detect_objects_results = computervision_client.detect_objects_in_stream(local_image)
+  detect_objects_results = computervision_client.detect_objects(local_image)
 #   objects = detect_objects_results.objects
 #   return objects
 
