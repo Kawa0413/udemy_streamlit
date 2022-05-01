@@ -60,10 +60,11 @@ if uploaded_file is not None:
     #画像ファイルにalpha値が含まれているケースを回避するためrgb変換
     img = Image.open(uploaded_file).convert('RGB')
 
-    #関数でファイルパスを指定するため読み込んだ画像を特定のフォルダに保存
+    #関数でファイルパスを指定するため読み込んだ画像を特定のフォルダに保存する
     img_path = f'img/{uploaded_file.name}'
     img.save(img_path)
     objects = detect_objects(img_path)
+
 
     st.markdown(objects)
 
