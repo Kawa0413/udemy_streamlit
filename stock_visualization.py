@@ -38,6 +38,7 @@ Parameter:
   tickers:取得するデータの会社名
 """
 
+#warningでるから消すか対処するか検討
 @st.cache   #キャッシュを利用して読み取りを高速にする
 def get_data(days, tickers):
   df = pd.DataFrame()
