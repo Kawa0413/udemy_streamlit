@@ -67,7 +67,7 @@ if uploaded_file is not None:
     st.markdown(img_path)
     files = glob.glob("img/*")
     for file in files:
-        print(file)
+        st.markdown(file)
     # objects = detect_objects(img_path)
 
     # #描画(矩形)
