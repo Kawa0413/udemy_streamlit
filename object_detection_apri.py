@@ -21,8 +21,6 @@ import streamlit as st
 subscription_key = st.secrets["AzureApiKey"]["KEY"]
 endpoint = st.secrets["AzureApiKey"]["ENDPOINT"]
 
-st.markdown(subscription_key)
-
 
 # endpoint = st.secrets.AzureApiKey.ENDPOINT
 #クライアントを認証(apiを使えるかどうかの認証)
