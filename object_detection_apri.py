@@ -26,6 +26,7 @@ endpoint = st.secrets["AzureApiKey"]["ENDPOINT"]
 # endpoint = st.secrets.AzureApiKey.ENDPOINT
 #クライアントを認証(apiを使えるかどうかの認証)
 computervision_client = ComputerVisionClient(endpoint, CognitiveServicesCredentials(subscription_key))
+st.markdown(computervision_client)
 
 
 #タグ情報を取得する関数
